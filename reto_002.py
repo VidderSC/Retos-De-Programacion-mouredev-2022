@@ -26,5 +26,34 @@ def fibonacci(lenght=50):
         num_b = temp
 
 
-# Llamamos a la funcion sin pasar un parámetro.
-fibonacci()
+# Llamamos a la funcion
+fibonacci(8)
+
+print()
+
+
+# Otra forma es usando la recursividad, pero es más complicada de entender.
+# Yo sinceramente todavía no entiendo como lo hace :'(
+
+
+# Esta función devuelve el valor de Fibonacci en la posicion indicada en num.
+def fibonacci_recursive(num):
+    # Si el valor de num es 0 o 1, devuelve ese mismo valor.
+    if num == 0 or num == 1:
+        return num
+
+    # Devuelve de forma recursiva el valor de la suma de los 
+    # dos valores anteriores (num-1) + (num-2)
+    return fibonacci_recursive(num - 1) + fibonacci_recursive(num - 2)
+
+
+# Esta función imprime todos los números hasta el valor indicado, 
+# por defecto el valor es 50 y usa la función recursiva para 
+# obtener los valores.
+def print_fibo(num=50):
+    for i in range(0,num):
+        print(fibonacci_recursive(i))
+
+
+# Llamamos a la función
+print_fibo(8)
