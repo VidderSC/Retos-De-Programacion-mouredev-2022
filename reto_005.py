@@ -13,29 +13,29 @@ import math
 
 url = 'https://raw.githubusercontent.com/mouredev/mouredev/master/mouredev_github_profile.png'
 
-# We get the image from the provided URL and convert it to an Image
+# Obtenemos la imagen de la url y la convertimos a una imagen que PIL entienda
 with requests.get(url) as response:
     img = Image.open(BytesIO(response.content))
 
-# We get the width and height from the retrived image
+# Obtenemos el ancho y alto de la imagen
 width, height = img.size
 print("Width:", width)
 print("Height:", height)
 
 
-# Function to calculate the aspect ratio and reduce it to its minimum expression
+# Función que calcula el aspect ratio y lo reduce a la mínima expresión
 def aspect_ratio(width, height):
-    # Find the smaller of the two
+    # Encontramos cual es el más pequeño de los dos
     smaller = min(width, height)
-    # Check all possible divisors (we can stop at "smaller // 2 + 1, since any
-    # larger than this would result in a smaller quotient.
+    # Comprobamos todos los posibles divisores (podemos parar en "smaller // 2 + 1",
+    # porque algo más largo que eso resultaría en un cociente más pequeño.
     for i in range(2, smaller // 2 + 1):
         if width % i == 0 and height % i == 0:
-            # If we find a common divisor, calculate the simplified ratio
+            # Si encontramos un común divisor, calculamos el ratio simplificado
             gcd = math.gcd(width, height)
             dividend, divisor = width // gcd, height // gcd
             return f"{dividend}:{divisor}"
-    # If no common divisor is found, return the original ratio
+    # Si no encontramos un divisor común, devolvemos el ratio original
     gcd = math.gcd(width, height)
     dividend = width // gcd
     divisor = height // gcd
