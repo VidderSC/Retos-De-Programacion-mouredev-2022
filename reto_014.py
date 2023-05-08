@@ -14,5 +14,19 @@ Por ejemplo, el número 153 es un número Armstrong, ya que tiene tres dígitos 
 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153.
 """
 
+
+# Creamos la función para determinar si es un número Armstrong
 def is_armstrong(num):
-    pass
+    # convertimos el número a un string
+    num_str = str(num)
+    # Obtenemos la cantidad de dígitos
+    length = len(num_str)
+    suma = 0
+    # Recorremos el num_str y calculamos
+    for n in num_str:
+        suma += int(n)**length
+    # Si la suma es igual al número, devuelve Verdadero
+    return suma == num
+
+
+print(is_armstrong(153))
