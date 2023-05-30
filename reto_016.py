@@ -49,7 +49,9 @@ def to_title(text):
     for index in range(1, length):
         # Si el carácter anterior al que leemos no está en el diccionario y 
         # el carácter actual sí, pasamos la mayúscula de este.
-        if text[index-1] not in dict_min_may and text[index-1] not in dict_min_may.values() and text[index] in dict_min_may:
+        if text[index-1] not in dict_min_may and \
+            [index-1] not in dict_min_may.values() and \
+            text[index] in dict_min_may:
             new_text += dict_min_may[text[index]]
         # de lo contrario pasamos el mismo carácter.
         else:
