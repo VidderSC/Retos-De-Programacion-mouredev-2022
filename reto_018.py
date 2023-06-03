@@ -68,7 +68,7 @@ def analizar_tres_en_raya(matrix: list) -> str:
 
     # Verificamos si hay empate, para ello contamos y sumamos todos los casos
     # en que haya un elemento vacío "".
-    elementos_no_vacios: list = sum(row.count("") for row in matriz)
+    elementos_no_vacios: int = sum(row.count("") for row in matriz)
     if elementos_no_vacios == 0:
         return "Empate"
 
